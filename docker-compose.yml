@@ -1,0 +1,17 @@
+version: '3'
+services:
+  proxy:
+    build: proxy
+    networks:
+      - prod_backend
+      - prod_frontend
+    ports:
+      - 80:80
+
+networks:
+  prod_backend:
+    external:
+      name: api-network
+  prod_frontend:
+    external:
+      name: frontend-network
